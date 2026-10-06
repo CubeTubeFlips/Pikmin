@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Pikmin Database</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="bloom.css">
+</head>
+
+<body class="page-index">
+    <h1>Pikmin Database</h1>
+
+    <p><a href='insert.html'>Add A New Pikmin</a></p>
+    <!--<p><a href='edit.html'>Edit an Existing Entry</a></p>-->
+
+    <hr />
+
+    <div class="container">
+
+        <div class="hero">
+            <img src="bimage.png" alt="Blue Image">
+        </div>
+
+        <div id='invalid-form' class='alert alert-danger'>&nbsp;</div>
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Pikmin Type</label>
+            </div>
+            <div class='col-md-10'>
+                <select id='level'>
+                    <option value=''></option>
+                    <option value='Red Pikmin'>Red</option>
+                    <option value='Blue Pikmin'>Blue</option>
+                    <option value='Yellow Pikmin'>Yellow</option>
+                    <option value='Purple Pikmin'>Purple</option>
+                    <option value='Rock Pikmin'>Rock</option>
+                    <option value='Winged Pikmin'>Winged</option>
+                    <option value='Ice Pikmin'>Ice</option>
+                    <option value='Glow Pikmin'>Glow</option>
+                </select>
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='level-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Weight Units</label>
+            </div>
+            <div class='col-md-10'>
+                <input id='weight' type='text' />
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='weight-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Can it fly?</label>
+            </div>
+            <div class='col-md-10'>
+                <input id='fly' type='checkbox' />
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='fly-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Sort by weight units?</label>
+            </div>
+            <div class='col-md-10'>
+                <select id='sort'>
+                    <option value=''></option>
+                    <option value='ASC'>Ascending</option>
+                    <option value='DESC'>Descending</option>
+                </select>
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='sort-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Specific Game</label>
+            </div>
+            <div class='col-md-10'>
+                <select id='game'>
+                    <option value=''> </option>
+                    <option value='1'>Pikmin</option>
+                    <option value='2'>Pikmin 2</option>
+                    <option value='3'>Pikmin 3</option>
+                    <option value='4'>Pikmin 4</option>
+                    <option value='5'>Hey! Pikmin</option>
+                    <option value='6'>Pikmin Bloom</option>
+                </select>
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='game-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Release Year</label>
+            </div>
+            <div class='col-md-10'>
+                <input id='year' type='text' />
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='year-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Game is good?</label>
+            </div>
+            <div class='col-md-10'>
+                <input id='goodness' type='checkbox' />
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='goodness-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+        <div class='row mb-3'>
+            <div class='col-md-2'>
+                <label>Limit</label>
+            </div>
+            <div class='col-md-10'>
+                <input id="limit" type="number" min="1" max="200" />
+            </div>
+        </div>
+        <div class='row mb-3'>
+            <div id='limit-error' class='col-12 text-danger'>&nbsp;</div>
+        </div>
+
+        <div class='row mb-3'>
+            <div class='col-md-12'>
+                <button id='search'>Search for Pikmin</button>
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <div id='classes' class='overflow'>
+        Pikmin go here :D
+    </div>
+
+    <script>
+        const errorBanner = document.getElementById('invalid-form');
+        errorBanner.hidden = true;
+
+        function clearFieldErrors() {
+            const errorMessages = document.getElementsByClassName('text-danger');
+            for (let htmlElement of errorMessages) {
+                htmlElement.innerHTML = '&nbsp;';
+            }
+        }
+
+        if (status === 400 && json && Array.isArray(json.errors)) {
+            errorBanner.innerText = 'Form has errors. Please correct them and resubmit.';
+            errorBanner.hidden = false;
+
+            for (let err of json.errors) {
+                const fieldName = err.path;
+                const errorId = fieldName + '-error';
+                const el = document.getElementById(errorId);
+                if (el) {
+                    el.innerText = err.msg;
+                }
+            }
+            //return;
+        }
+
+        const isEmpty = (obj) => Object.keys(obj).length === 0;
+
+        document.getElementById('search').addEventListener('click', (event) => {
+            const getParameters = {};
+
+            // The document.getElementById() needs to use the 'id' of the form element
+
+            if (document.getElementById('level').value) {
+                getParameters.level = document.getElementById('level').value;
+            }
+
+            if (document.getElementById('weight').value) {
+                getParameters.weight = document.getElementById('weight').value;
+            }
+
+            if (document.getElementById('fly').checked) {
+                getParameters.fly = 1;
+            }
+
+            if (document.getElementById('sort').value) {
+                getParameters.sort = document.getElementById('sort').value;
+            }
+
+            if (document.getElementById('game').value) {
+                getParameters.game = document.getElementById('game').value;
+            }
+
+            if (document.getElementById('year').value) {
+                getParameters.year = document.getElementById('year').value;
+            }
+
+            if (document.getElementById('goodness').checked) {
+                getParameters.goodness = 1;
+            }
+
+            //Extra limit thing
+            if (document.getElementById('limit').value) {
+                getParameters.limit = document.getElementById('limit').value;
+            }
+
+            //Settings for FETCH API request
+            let fetchSettings = {
+                method: 'GET'
+            };
+
+            //Send FETCH API request
+            fetch("/pikmin/" + (!isEmpty(getParameters) ? '?' + new URLSearchParams(getParameters) : ''), fetchSettings)
+                .then((response) => {
+                    return new Promise((resolve) => response.json()
+                        .then((json) => resolve({
+                            status: response.status,
+                            json,
+                        })
+                        ));
+                })
+                //Logic to display errors on form 
+                .then(({ status, json }) => {
+                    clearFieldErrors();
+
+                    if (status === 400 && json && Array.isArray(json.errors)) {
+                        errorBanner.innerText = 'Form has errors. Please correct them and resubmit.';
+                        errorBanner.hidden = false;
+
+                        for (let err of json.errors) {
+                            const fieldName = err.path;
+                            const errorId = fieldName + '-error';
+                            const el = document.getElementById(errorId);
+                            if (el) {
+                                el.innerText = err.msg;
+                            }
+                        }
+                        return;
+                    }
+                    if (status === 200) {
+                        let displayTable = '<table>' +
+                            '<thead>' +
+                            '<tr>' +
+                            '<th width="20%">Color</th>' +
+                            '<th width="20%">Weight</th>' +
+                            '<th width="20%">Can fly?</th>' +
+                            '<th width="20%">Game</th>' +
+                            '<th width="20%">Year</th>' +
+                            '<th width="20%">Good?</th>' +
+                            '<th width="20%">Edit</th>' +
+                            '</tr>' +
+                            '</thead>' +
+                            '<tbody>';
+                        if (typeof json.data !== 'undefined') {
+                            for (row of json.data) {
+                                displayTable += '<tr>' +
+                                    '<td>' + row.pikmin_type + '</td>' +
+                                    '<td>' + row.weight_units + '</td>' +
+                                    '<td>' + row.can_fly + '</td>' +
+                                    '<td>' + row.name + '</td>' +
+                                    '<td>' + row.year_of_release + '</td>' +
+                                    '<td>' + row.is_good + '</td>' +
+                                    '<td><a href="edit.html?id=' + row.pikmin_id + '">Edit</a></td>' +
+                                    '</tr>';
+                            }
+                        }
+                        displayTable += '</tbody></table>';
+                        document.getElementById('classes').innerHTML = displayTable;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });               
+    </script>
+</body>
+
+</html>
