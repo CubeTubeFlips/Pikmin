@@ -1,0 +1,408 @@
+/*Unique stuff for each page*/
+body.page-index {
+    background: linear-gradient(135deg, #0a0f2c, #1a1f4a);
+}
+
+body.page-insert {
+    background: linear-gradient(135deg, #1a0f2c, #3a1f4a);
+}
+
+body.page-edit {
+    background: linear-gradient(135deg, #001f2c, #0a3f4a);
+}
+
+body {
+    background-size: 400% 400%;
+    animation: gradientShift 30s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body.page-index {
+    background: linear-gradient(270deg, #0a0f2c, #2b337c, #17365c, #150e56);
+    background-size: 400% 400%;
+}
+
+body.page-insert {
+    background: linear-gradient(270deg, #2f0a0a, #661052, #49135a, #4b330b);
+    background-size: 400% 400%;
+}
+
+body.page-edit {
+    background: linear-gradient(270deg, #0a3626, #094923, #416a1f, #476108);
+    background-size: 400% 400%;
+}
+
+/*Normal stuff*/
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom, #0a0f2c, #1a1f4a);
+    color: #e0e6ff;
+    margin: 0;
+}
+
+h1, h2, h5 {
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #ff4df0;
+}
+
+/*Form/Grid Stuff*/
+table {
+    border-collapse: collapse;
+    width: 90%;
+    background-color: rgba(10,15,44,0.6);
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #1a1f4a;
+}
+
+tr:hover {
+    background-color: rgba(0,234,255,0.08);
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(255,77,240,0.03);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0,234,255,0.03);
+}
+
+table {
+    color: #ffffff;
+    margin: 10px;
+}
+
+thead {
+    color: #00eaff;
+}
+
+th {
+    color: #ff4df0;
+}
+
+/*Links*/
+a {
+    color: #00eaff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #ff4df0;
+    text-shadow: 0 0 8px #ff4df0;
+}
+
+/*Cool Navbar*/
+nav {
+    background-color: #0a0f2c;
+    border-bottom: 2px solid #00eaff;
+}
+
+nav a {
+    color: #ffffff !important;
+    margin-left: 15px;
+}
+nav a:hover {
+    color: #00eaff !important;
+}
+
+section {
+    padding: 25px 0;
+}
+
+.profile-img {
+    max-width: 400px;
+    border-radius: 10%;
+    border: 3px solid #ff4df0;
+    box-shadow: 0 0 20px #ff4df0;
+    transition: 0.3s;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00eaff;
+}
+
+#about p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.card {
+    background-color: #12173a;
+    border: 2px solid #00eaff;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card h5 {
+    color: #ff4df0;
+}
+
+.card p {
+    color: #cfd6ff;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #ff4df0;
+    box-shadow: 0 0 20px #ff4df0;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+#contact {
+    background: #050816;
+    border-top: 3px solid #ff4df0;
+    border-bottom: 3px solid #00eaff;
+    text-align: center;
+}
+
+#contact p {
+    margin: 10px 0;
+}
+
+#contact p:hover {
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+button {
+    background-color: transparent;
+    border: 2px solid #00eaff;
+    color: #00eaff;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #00eaff;
+    color: #0a0f2c;
+    box-shadow: 0 0 15px #00eaff;
+}
+/*Also cool scrollbar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0f2c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00eaff;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff4df0;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #00eaff, #ff4df0);
+}
+
+::selection {
+    background: #ff4df0;
+    color: #fff;
+}
+
+.glow {
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #ff4df0;
+}
+
+#artifacts .row {
+    margin-top: 20px;
+}
+
+.navbar-toggler {
+    border: 1px solid #00eaff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #00eaff;
+}
+
+/*Much nicer form asthetic, generally*/
+input {
+    border-radius: 6px;
+    border: 1px solid #00eaff;
+    padding: 6px;
+    background-color: #0a0f2c;
+    color: white;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00eaff;
+    border-color: #ff4df0;
+}
+
+input:hover {
+    transform: scale(1.02);
+}
+
+select {
+    border-radius: 6px;
+    border: 1px solid #00eaff;
+    background-color: #0a0f2c;
+    color: white;
+    transition: 0.3s;
+}
+
+select:focus {
+    box-shadow: 0 0 10px #ff4df0;
+}
+
+select:hover {
+    transform: scale(1.02);
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: #00eaff;
+}
+
+/*Work on buttons here*/
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 12px #ff4df0;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/*Extra stuff for the tables*/
+td:hover {
+    background-color: rgba(255, 77, 240, 0.1);
+}
+
+th:hover {
+    letter-spacing: 2px;
+}
+
+table:hover {
+    transform: scale(1.01);
+    transition: 0.3s;
+}
+
+/*Extra stuff for errors (ooh keyframes)*/
+.text-danger {
+    font-weight: bold;
+    animation: shake 0.3s;
+}
+
+.alert-danger {
+    border-left: 5px solid #ff4df0;
+    background-color: rgba(255, 0, 100, 0.1);
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+.row:hover {
+    transition: 0.3s;
+    transform: translateY(-2px);
+}
+
+.container:hover {
+    transition: 0.3s;
+}
+
+label:hover {
+    color: #00eaff;
+    transition: 0.3s;
+}
+
+hr:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+::selection:hover {
+    background: #00eaff;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/*For the funny pictures*/
+.hero {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.hero img {
+    width: 80%;
+    max-width: 100px;
+    border-radius: 12px;
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.4);
+    transition: 0.3s;
+}
+
+.hero img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 77, 240, 0.6);
+}
+
+/*Just adding as much extra stuff as I can down here*/
+.mt-small { margin-top: 5px; }
+.mt-medium { margin-top: 15px; }
+.mt-large { margin-top: 30px; }
+
+.mb-small { margin-bottom: 5px; }
+.mb-medium { margin-bottom: 15px; }
+.mb-large { margin-bottom: 30px; }
+
+.text-glow { text-shadow: 0 0 8px #00eaff; }
+.text-pink-glow { text-shadow: 0 0 8px #ff4df0; }
+
+.border-glow-blue { border: 2px solid #00eaff; }
+.border-glow-pink { border: 2px solid #ff4df0; }
+
+.rounded-soft { border-radius: 12px; }
+.rounded-hard { border-radius: 4px; }
